@@ -1,10 +1,10 @@
 package com.example.appjamserver.global.error;
 
+import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 @Getter
-@RequiredArgsConstructor
+@Builder
 public class ErrorResponse {
 
     private final int status;
