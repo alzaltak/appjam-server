@@ -40,6 +40,9 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.POST, "/user/signup").permitAll()
                 .antMatchers(HttpMethod.POST, "/user/token").permitAll()
 
+                // home
+                .antMatchers(HttpMethod.POST, "/home").authenticated()
+                
                 .anyRequest().denyAll()
 
                 .and()
