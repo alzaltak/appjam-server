@@ -36,5 +36,6 @@ public class User {
     @Column(nullable = false)
     private String myLang;
 
-
+    @Column(nullable = false)
+    private Integer believe; // 신뢰도
 }
