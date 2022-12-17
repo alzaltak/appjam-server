@@ -35,6 +35,7 @@ public class CreateMyHomeService {
                 .roomCounts(request.getRoomCounts())
                 .homeSize(request.getHomeSize())
                 .endAt(request.getEndAt())
+                .likeCounts(0)
                 .user(user)
                 .build());
     }
