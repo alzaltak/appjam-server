@@ -4,6 +4,7 @@ import com.example.appjamserver.domain.user.domain.User;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -55,6 +56,12 @@ public class Home {
     @Column(nullable = false)
     private String content; // 내용글
 
+    @Column(nullable = false)
+    private Integer likeCounts;
+
+    @Column(nullable = false)
+    private LocalDate endAt;
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -77,6 +84,14 @@ public class Home {
 
     public Integer getBelieve() {
         return this.user.getBelieve();
+    }
+
+    public void addLikeCounts() {
+        this.likeCounts += 1;
+    }
+
+    public void minusLikeCounts() {
+        this.likeCounts -= 1;
     }
 
 }

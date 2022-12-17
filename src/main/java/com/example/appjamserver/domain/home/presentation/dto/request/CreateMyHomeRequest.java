@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
 @Getter
 @NoArgsConstructor
@@ -48,4 +49,8 @@ public class CreateMyHomeRequest {
 
     @NotBlank
     private String content; // 내용글
+
+    @NotNull
+    private LocalDate endAt; // 마감기간
+
 }
