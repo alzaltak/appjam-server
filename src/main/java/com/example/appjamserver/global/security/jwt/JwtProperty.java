@@ -12,7 +12,6 @@ import org.springframework.boot.context.properties.ConstructorBinding;
 public class JwtProperty {
 
     private final Long accessExp;
-    private final Long refreshExp;
     private final String secretKey;
 
 }
