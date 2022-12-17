@@ -19,4 +19,9 @@ public class UserFacade {
                 .orElseThrow(() -> UserNotFound.EXCEPTION);
     }
 
+    public User findUserById(Long userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> UserNotFound.EXCEPTION);
+    }
+
 }

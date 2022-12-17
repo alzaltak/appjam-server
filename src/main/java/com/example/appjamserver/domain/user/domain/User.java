@@ -43,4 +43,8 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Home home;
 
+    public void setBelieve(Integer believe) {
+        this.believe = believe;
+    }
+
 }
