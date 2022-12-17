@@ -40,11 +40,17 @@ public class User {
     @Column(nullable = false)
     private Integer believe; // 신뢰도
 
+    private Integer reviewers;
+
     @OneToOne(mappedBy = "user")
     private Home home;
 
     public void setBelieve(Integer believe) {
         this.believe = believe;
+    }
+
+    public void addReviewers() {
+        this.reviewers += 1;
     }
 
 }

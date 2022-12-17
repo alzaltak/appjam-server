@@ -23,6 +23,7 @@ public class CreateReviewService {
             throw CannotReview.EXCEPTION;
         }
         targetUser.setBelieve(request.getStars());
+        user.addReviewers();
     }
 
 }
