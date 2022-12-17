@@ -1,5 +1,6 @@
 package com.example.appjamserver.domain.user.domain;
 
+import com.example.appjamserver.domain.home.domain.Home;
 import lombok.*;
 
 import javax.persistence.*;
@@ -38,4 +39,8 @@ public class User {
 
     @Column(nullable = false)
     private Integer believe; // 신뢰도
+
+    @OneToOne(mappedBy = "user")
+    private Home home;
+
 }

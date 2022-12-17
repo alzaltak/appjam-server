@@ -17,7 +17,7 @@ public class Home {
     private Long id;
 
     @Column(nullable = false)
-    private String homeInfo;
+    private String homeInfo; // 집 유형
 
     @Column(nullable = false)
     private String location;

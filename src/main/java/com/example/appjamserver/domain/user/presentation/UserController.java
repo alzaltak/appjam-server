@@ -2,13 +2,12 @@ package com.example.appjamserver.domain.user.presentation;
 
 import com.example.appjamserver.domain.user.presentation.dto.request.UserSignInRequest;
 import com.example.appjamserver.domain.user.presentation.dto.request.UserSignUpRequest;
+import com.example.appjamserver.domain.user.presentation.dto.response.QueryRegionUserListResponse;
 import com.example.appjamserver.domain.user.presentation.dto.response.TokenResponse;
+import com.example.appjamserver.domain.user.service.QueryRegionUserService;
 import com.example.appjamserver.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -18,6 +17,7 @@ import javax.validation.Valid;
 public class UserController {
 
     private final UserService userService;
+    private final QueryRegionUserService queryRegionUserService;
 
     @PostMapping("/token")
     public TokenResponse signIn(@RequestBody @Valid UserSignInRequest request) {
@@ -27,6 +27,11 @@ public class UserController {
     @PostMapping("/signup")
     public TokenResponse signUp(@RequestBody @Valid UserSignUpRequest request) {
         return userService.execute(request);
+    }
+
+    @GetMapping
+    public QueryRegionUserListResponse queryUserListByRegion(@RequestParam("add_ress") String addRess) {
+        return queryRegionUserService.execute(addRess);
     }
 
 }
