@@ -9,7 +9,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "tbl_user")
 public class User {
 
     @Id
