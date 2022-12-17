@@ -13,7 +13,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     Optional<User> findByAccountId(String accountId);
 
-    @Query("select u from User u where u.home.address like %:address%")
+    @Query("select u from User u where u.home.address like %:address")
     List<User> queryByAddRess(String address);
 
 }
