@@ -3,9 +3,11 @@ package com.example.appjamserver.domain.user.presentation;
 import com.example.appjamserver.domain.user.presentation.dto.request.CreateReviewRequest;
 import com.example.appjamserver.domain.user.presentation.dto.request.UserSignInRequest;
 import com.example.appjamserver.domain.user.presentation.dto.request.UserSignUpRequest;
+import com.example.appjamserver.domain.user.presentation.dto.response.QueryMyInfoDetailResponse;
 import com.example.appjamserver.domain.user.presentation.dto.response.QueryRegionUserListResponse;
 import com.example.appjamserver.domain.user.presentation.dto.response.TokenResponse;
 import com.example.appjamserver.domain.user.service.CreateReviewService;
+import com.example.appjamserver.domain.user.service.QueryMyInfoDetailService;
 import com.example.appjamserver.domain.user.service.QueryRegionUserService;
 import com.example.appjamserver.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +22,7 @@ public class UserController {
 
     private final UserService userService;
     private final QueryRegionUserService queryRegionUserService;
+    private final QueryMyInfoDetailService queryMyInfoDetailService;
     private final CreateReviewService createReviewService;
 
     @PostMapping("/token")
@@ -35,6 +38,11 @@ public class UserController {
     @GetMapping
     public QueryRegionUserListResponse queryUserListByRegion(@RequestParam("add_ress") String addRess) {
         return queryRegionUserService.execute(addRess);
+    }
+
+    @GetMapping("/my")
+    public QueryMyInfoDetailResponse queryMyInfo() {
+        return queryMyInfoDetailService.execute();
     }
 
     @PutMapping("/{user-id}")
