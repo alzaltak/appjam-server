@@ -21,7 +21,7 @@ public class QueryMyInfoDetailService {
         return QueryMyInfoDetailResponse.builder()
                 .userId(user.getId())
                 .profileImageUrl(user.getProfileImageUrl())
-                .location(user.getHome().getLocation())
+                .location(user.getLocation())
                 .believe(user.getBelieve())
                 .lastName(user.getLastName())
                 .firstName(user.getFirstName())

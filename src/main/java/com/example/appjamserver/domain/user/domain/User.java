@@ -54,4 +54,8 @@ public class User {
         this.reviewers += 1;
     }
 
+    public String getLocation() {
+        return this.home.getLocation();
+    }
+
 }
