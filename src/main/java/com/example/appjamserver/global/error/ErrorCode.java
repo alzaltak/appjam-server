@@ -9,6 +9,7 @@ public enum ErrorCode {
 
     SAVE_IMAGE_FAILED(400, "Save Image Failed"),
 
+    CANNOT_REVIEW(401, "Cannot Review"),
     EXPIRED_JWT(401, "Expired Jwt"),
     INVALID_JWT(401, "Invalid Jwt"),
     PASSWORD_MIS_MATCH(401, "Password Mis Match"),

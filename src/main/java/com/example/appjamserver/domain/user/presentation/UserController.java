@@ -37,7 +37,7 @@ public class UserController {
         return queryRegionUserService.execute(addRess);
     }
 
-    @PostMapping("/{user-id}")
+    @PutMapping("/{user-id}")
     public void createReview(@PathVariable("user-id") Long userId,
                              @RequestBody @Valid CreateReviewRequest request) {
         createReviewService.execute(userId, request);
