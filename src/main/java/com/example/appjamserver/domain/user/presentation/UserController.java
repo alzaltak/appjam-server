@@ -1,6 +1,7 @@
 package com.example.appjamserver.domain.user.presentation;
 
 import com.example.appjamserver.domain.user.presentation.dto.request.UserSignInRequest;
+import com.example.appjamserver.domain.user.presentation.dto.request.UserSignUpRequest;
 import com.example.appjamserver.domain.user.presentation.dto.response.TokenResponse;
 import com.example.appjamserver.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -23,4 +24,9 @@ public class UserController {
         return userService.execute(request);
     }
 
+    @PostMapping("/signup")
+    public TokenResponse signUp(@RequestBody @Valid UserSignUpRequest request) {
+        return userService.execute(request);
+    }
+    
 }
