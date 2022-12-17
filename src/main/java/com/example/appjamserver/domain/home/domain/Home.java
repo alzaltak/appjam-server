@@ -55,8 +55,28 @@ public class Home {
     @Column(nullable = false)
     private String content; // 내용글
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    public Long getUserId() {
+        return this.user.getId();
+    }
+
+    public String getProfileImage() {
+        return this.user.getProfileImageUrl();
+    }
+
+    public String getLastName() {
+        return this.user.getLastName();
+    }
+
+    public String getFirstName() {
+        return this.user.getFirstName();
+    }
+
+    public Integer getBelieve() {
+        return this.user.getBelieve();
+    }
 
 }

@@ -8,6 +8,7 @@ import lombok.Getter;
 @Builder
 public class UserElement {
 
+    private final Long userId;
     private final String profileImageUrl;
     private final String lastName;
     private final String firstName;
@@ -15,6 +16,7 @@ public class UserElement {
 
     public static UserElement of(User user) {
         return UserElement.builder()
+                .userId(user.getId())
                 .profileImageUrl(user.getProfileImageUrl())
                 .lastName(user.getLastName())
                 .firstName(user.getFirstName())

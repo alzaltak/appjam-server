@@ -12,6 +12,7 @@ public class HomeElement {
     private final String location;
     private final String homeInfo;
     private final Integer homeSize;
+    private final Integer maxPeopleSize;
 
     public static HomeElement of(Home home) {
         return HomeElement.builder()
@@ -19,6 +20,7 @@ public class HomeElement {
                 .location(home.getLocation())
                 .homeInfo(home.getHomeInfo())
                 .homeSize(home.getHomeSize())
+                .maxPeopleSize(home.getMaxPeopleSize())
                 .build();
     }
 
