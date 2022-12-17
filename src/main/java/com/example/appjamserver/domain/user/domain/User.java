@@ -40,6 +40,7 @@ public class User {
     @Column(nullable = false)
     private Integer believe; // 신뢰도
 
+    @Column(nullable = false)
     private Integer reviewers;
 
     @OneToOne(mappedBy = "user")

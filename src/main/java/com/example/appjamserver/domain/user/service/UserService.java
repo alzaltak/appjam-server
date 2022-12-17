@@ -49,6 +49,7 @@ public class UserService {
                 .myLang(request.getMyLang())
                 .profileImageUrl(DefaultImage.USER_PROFILE_IMAGE)
                 .believe(0)
+                .reviewers(0)
                 .build());
 
         String accessToken = jwtTokenProvider.generateAccessToken(request.getAccountId());

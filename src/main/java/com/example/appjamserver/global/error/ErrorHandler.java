@@ -52,5 +52,5 @@ public class ErrorHandler {
                 HttpStatus.valueOf(errorCode.getStatus())
         );
     }
-    
+
 }
