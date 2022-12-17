@@ -9,6 +9,6 @@ public interface UserLikeRepository extends CrudRepository<UserLike, Long> {
 
     boolean existsByUserAndHome(User user, Home home);
 
-    boolean deleteByUserAndHome(User user, Home home);
+    void deleteByUserAndHome(User user, Home home);
 
 }
