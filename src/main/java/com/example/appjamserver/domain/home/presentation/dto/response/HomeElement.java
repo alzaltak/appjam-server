@@ -1,5 +1,6 @@
 package com.example.appjamserver.domain.home.presentation.dto.response;
 
+import com.example.appjamserver.domain.home.domain.Home;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -11,5 +12,14 @@ public class HomeElement {
     private final String location;
     private final String homeInfo;
     private final Integer homeSize;
+
+    public static HomeElement of(Home home) {
+        return HomeElement.builder()
+                .homeImageUrl(home.getHomeImageUrl())
+                .location(home.getLocation())
+                .homeInfo(home.getHomeInfo())
+                .homeSize(home.getHomeSize())
+                .build();
+    }
 
 }

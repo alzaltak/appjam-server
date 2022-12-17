@@ -1,11 +1,8 @@
 package com.example.appjamserver.domain.user.presentation.dto.response;
 
-import com.example.appjamserver.domain.home.presentation.dto.response.HomeElement;
 import com.example.appjamserver.domain.user.domain.User;
 import lombok.Builder;
 import lombok.Getter;
-
-import java.util.List;
 
 @Getter
 @Builder
