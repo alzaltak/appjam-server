@@ -28,5 +28,5 @@ public class UserController {
     public TokenResponse signUp(@RequestBody @Valid UserSignUpRequest request) {
         return userService.execute(request);
     }
-    
+
 }
