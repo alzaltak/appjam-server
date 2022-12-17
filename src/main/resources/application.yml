@@ -15,14 +15,9 @@ spring:
   jackson:
     property-naming-strategy: SNAKE_CASE
 
-redis:
-  port: ${REDIS_PORT}
-  host: ${REDIS_HOST}
-
 jwt:
   secret_key: ${SECRET_KEY}
   access_exp: ${ACCESS_EXP}
-  refresh_exp: ${REFRESH_EXP}
 
 cloud:
   aws:

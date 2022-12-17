@@ -31,9 +31,8 @@ public class UserService {
         }
 
         String accessToken = jwtTokenProvider.generateAccessToken(request.getAccountId());
-        String refreshToken = jwtTokenProvider.generateRefreshToken(request.getAccountId());
 
-        return new TokenResponse(accessToken, refreshToken);
+        return new TokenResponse(accessToken);
     }
 
     public TokenResponse execute(UserSignUpRequest request) {
@@ -52,9 +51,8 @@ public class UserService {
                 .build());
 
         String accessToken = jwtTokenProvider.generateAccessToken(request.getAccountId());
-        String refreshToken = jwtTokenProvider.generateRefreshToken(request.getAccountId());
 
-        return new TokenResponse(accessToken, refreshToken);
+        return new TokenResponse(accessToken);
     }
 
 }

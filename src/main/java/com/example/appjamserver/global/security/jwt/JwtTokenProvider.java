@@ -1,7 +1,5 @@
 package com.example.appjamserver.global.security.jwt;
 
-import com.example.appjamserver.domain.refresh_token.RefreshToken;
-import com.example.appjamserver.domain.refresh_token.repository.RefreshTokenRepository;
 import com.example.appjamserver.global.exception.ExpiredJwt;
 import com.example.appjamserver.global.exception.InvalidJwt;
 import com.example.appjamserver.global.security.auth.AuthDetailsService;
@@ -27,28 +25,16 @@ public class JwtTokenProvider {
 
     private final JwtProperty jwtProperty;
     private final AuthDetailsService authDetailsService;
-    private final RefreshTokenRepository refreshTokenRepository;
 
     public String generateAccessToken(String accountId) {
-        return generateToken(accountId, "access", jwtProperty.getAccessExp());
+        return generateToken(accountId, jwtProperty.getAccessExp());
     }
 
-    public String generateRefreshToken(String accountId) {
-        String refreshToken = generateToken(accountId, "refresh", jwtProperty.getRefreshExp());
-        refreshTokenRepository.save(RefreshToken.builder()
-                .accountId(accountId)
-                .token(refreshToken)
-                .ttl(jwtProperty.getRefreshExp())
-                .build());
-
-        return refreshToken;
-    }
-
-    private String generateToken(String accountId, String type, Long exp) {
+    private String generateToken(String accountId, Long exp) {
         return Jwts.builder()
                 .signWith(SignatureAlgorithm.HS256, jwtProperty.getSecretKey())
                 .setSubject(accountId)
-                .claim("type", type)
+                .claim("type", "access")
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + exp * 1000))
                 .compact();
